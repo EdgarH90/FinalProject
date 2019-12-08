@@ -1,56 +1,43 @@
 /*******************************************************************************
 ** Author:       Edgar Hernandez
 ** Date:         12/1/2019
-** Description:  This program contains the implementation of the researchLab class.
+** Description:  This program contains the implementation of the skyline class.
 *******************************************************************************/
-#include "researchLab.hpp"
+#include "skyline.hpp"
 
 /*********************************************************************
-*					researchLab::researchLab()
+*					skyline::skyline()
 * This is the default constructor that intializes the objects for the
-* researchLab class.
+* skyline class.
 *********************************************************************/
-researchLab::researchLab()
+skyline::skyline()
 {
 	left = nullptr;
 	right = nullptr;
 	top = nullptr;
 	bottom = nullptr;
-	story = "askQ.txt";
+	story = "skyline.txt";
 }
 
 /*********************************************************************
-*					researchLab::researchLab()
+*					skyline::skyline()
 * This is the default destructor that deletes the objects in memory
-* in the researchLab class.
+* in the skyline class.
 *********************************************************************/
-researchLab::~researchLab()
+skyline::~skyline()
 {
 
 }
 
 /*********************************************************************
-*					researchLab::navigateMap()
+*					skyline::navigateMap()
 * The user's movement is based on the currentRotation value set in the
 * updateTile function. The x and y axes had to be swapped to ensure the
 * movement was correct.
 *********************************************************************/
 
-void researchLab::navigateMap()
+void skyline::navigateMap()
 {
 
-}
-
-
-/*********************************************************************
-*					researchLab::getStory()
-* This function returns the string for the file containing the content
-* of the story. It overrides the function of the parent class.
-*********************************************************************/
-
-std::string researchLab::getStory()
-{
-	gameOver = true;
-	return story;
 }
 

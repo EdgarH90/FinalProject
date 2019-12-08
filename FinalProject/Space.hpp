@@ -24,10 +24,10 @@ enum userMovement { N, E, S, W };
 class Space
 {
 protected://MAKE PRIVATE
-	Space* left;
-	Space* right;
-	Space* top;
-	Space* bottom;
+	std::shared_ptr<Space> left;
+	std::shared_ptr<Space> right;
+	std::shared_ptr<Space> top;
+	std::shared_ptr<Space> bottom;
 	std::shared_ptr<Board> map;
 	itemStorage storage;
 	userMovement currentRotation;
@@ -37,13 +37,22 @@ protected://MAKE PRIVATE
 	int numCols = 4;
 	int playerStatus = 1;
 	int itemCount = 0;
-	bool gameOver = false;
+	std::string story = "";
+	bool gameOver = true;
 public:
 	virtual ~Space() = 0;
 	virtual void placemapItems();
-	virtual void setRight(Space* rightIn);
+	virtual void setRight(std::shared_ptr<Space> rightIn);
+	virtual void setLeft(std::shared_ptr<Space> rightIn);
+	virtual void setTop(std::shared_ptr<Space> rightIn);
+	virtual void setBottom(std::shared_ptr<Space> rightIn);
+	virtual std::shared_ptr<Space> getRight();
+	virtual std::shared_ptr<Space> getLeft();
+	virtual std::shared_ptr<Space> getTop();
+	virtual std::shared_ptr<Space> getBottom();
 	virtual bool updateMap(int userMove);
 	virtual void navigateMap();
+	virtual  std::string getStory();
 	virtual bool getStatus();
 	void showmap();
 };

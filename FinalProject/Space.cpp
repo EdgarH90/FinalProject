@@ -56,29 +56,24 @@ bool Space::updateMap(int userMove)
 		map->changeColor(userXpos, userYpos);
 		currentRotation = static_cast<userMovement>(userMove); // Ensures enum value is not out of range
 		navigateMap();
-		return false;
 	}
 	if (map->getboardCoord(userXpos, userYpos) == '?')
 	{
-		std::cout << "You have collected an item. " << std::endl;
 		itemCount++;
+		std::cout << "You have collected " << itemCount <<" of the 3 nuclear items. " << std::endl;
 		map->resetTile(userXpos, userYpos);
 		if (itemCount == 3)
 		{
-			return true;
-		}
-		else
-		{
-			return false;
+			gameOver = false;
+			flag = true;
 		}
 	}
 	else if (map->getboardCoord(userXpos, userYpos) == '#')
 	{
-		std::cout << "You stepped into a radiation zone and died. \n"
-			<< "GAME OVER \n";
-		gameOver = true;
-		return true;
+		std::cout << "You stepped into a radiation zone and died. \n";
+		flag = true;
 	}
+	return flag;
 }
 
 /*********************************************************************
@@ -121,22 +116,115 @@ void Space::navigateMap()
 }
 
 /*********************************************************************
-*					Space::showmap()
+*					Space::setRight()
 * This function prints the current state of the board and the ant's position
 * by using the structure pointer operator to pass the position to the
 * Board object's showBoard function.
 *********************************************************************/
 
-void Space::setRight(Space* rightIn)
+void Space::setRight(std::shared_ptr<Space> rightIn)
 {
 	right = rightIn; //UPDATE
 }
 
 /*********************************************************************
-*					Space::getStatus()
+*					Space::setLeft()
 * This function prints the current state of the board and the ant's position
 * by using the structure pointer operator to pass the position to the
 * Board object's showBoard function.
+*********************************************************************/
+
+void Space::setLeft(std::shared_ptr<Space> leftIn)
+{
+	left = leftIn; //UPDATE
+}
+
+/*********************************************************************
+*					Space::setTop()
+* This function prints the current state of the board and the ant's position
+* by using the structure pointer operator to pass the position to the
+* Board object's showBoard function.
+*********************************************************************/
+
+void Space::setTop(std::shared_ptr<Space> topIn)
+{
+	top = topIn; //UPDATE
+}
+
+/*********************************************************************
+*					Space::setDown()
+* This function prints the current state of the board and the ant's position
+* by using the structure pointer operator to pass the position to the
+* Board object's showBoard function.
+*********************************************************************/
+
+void Space::setBottom(std::shared_ptr<Space> bottomIn)
+{
+	bottom = bottomIn; //UPDATE
+}
+
+/*********************************************************************
+*					Space::setRight()
+* This function prints the current state of the board and the ant's position
+* by using the structure pointer operator to pass the position to the
+* Board object's showBoard function.
+*********************************************************************/
+
+std::shared_ptr<Space> Space::getRight()
+{
+	return right;
+}
+
+/*********************************************************************
+*					Space::setLeft()
+* This function prints the current state of the board and the ant's position
+* by using the structure pointer operator to pass the position to the
+* Board object's showBoard function.
+*********************************************************************/
+
+std::shared_ptr<Space> Space::getLeft()
+{
+	return left; //UPDATE
+}
+
+/*********************************************************************
+*					Space::setTop()
+* This function prints the current state of the board and the ant's position
+* by using the structure pointer operator to pass the position to the
+* Board object's showBoard function.
+*********************************************************************/
+
+std::shared_ptr<Space> Space::getTop()
+{
+	return top; //UPDATE
+}
+
+/*********************************************************************
+*					Space::setDown()
+* This function prints the current state of the board and the ant's position
+* by using the structure pointer operator to pass the position to the
+* Board object's showBoard function.
+*********************************************************************/
+
+std::shared_ptr<Space> Space::getBottom()
+{
+	return bottom; //UPDATE
+}
+
+
+/*********************************************************************
+*					Space::getStatus()
+* This function prints the current state of the space
+*********************************************************************/
+
+std::string Space::getStory()
+{
+	return story;
+}
+
+/*********************************************************************
+*					Space::getStatus()
+* This function prints the current state of the space
 *********************************************************************/
 
 bool Space::getStatus()

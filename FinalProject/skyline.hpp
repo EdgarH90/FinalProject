@@ -1,24 +1,23 @@
 /*******************************************************************************
 ** Author:       Edgar Hernandez
 ** Date:         12/1/2019
-** Description:  This program contains the specification for the researchLab class.
+** Description:  This program contains the specification for the skyline class.
 *******************************************************************************/
 #include "Space.hpp"
-#ifndef RESEARCHLAB_HPP
-#define RESEARCHLAB_HPP
+#ifndef	SKYLINE_HPP
+#define SKYLINE_HPP
 #include <string>
 #include <iostream>
 
-class researchLab :
+class skyline :
 	public Space
 {
 protected:
 
 public:
-	researchLab();
-	virtual ~researchLab();
+	skyline();
+	virtual ~skyline();
 	virtual void navigateMap();
-	virtual std::string getStory();
 };
 
 #endif

@@ -15,19 +15,26 @@
 #include "itemStorage.hpp"
 #include "Space.hpp"
 #include "yeartwentyTwenty.hpp"
+#include "researchLab.hpp"
+#include "blackMarket.hpp"
+#include "skyline.hpp"
 
 class Game
 {
-private:
-	int roundWinner = 0;
-	int damage = 0;
-	int teamoneScore = 0;
-	int teamtwoScore = 0;
+protected:
+	std::shared_ptr<Space> year2020;
+	std::shared_ptr<Space> drsLab;
+	std::shared_ptr<Space> market;
+	std::shared_ptr<Space> city;
+	std::shared_ptr<Space> currentLocation; //Keeps track of the player's current location
 	itemStorage storage;
+	std::string fileOutput = ""; //String for the text file containing the story
+	bool gameStatus = true;
 public:
-	Game() {};
+	Game();
 	~Game() {};
-	void getArt();
+	void getStory(int fileNumber);
+	void getStory(std::string inputFile);
 	void sectionBreak();
 	void playGame();
 };

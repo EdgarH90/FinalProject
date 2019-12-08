@@ -1,32 +1,30 @@
 /*******************************************************************************
 ** Author:       Edgar Hernandez
 ** Date:         12/1/2019
-** Description:  This program contains the implementation of the yeartwentyTwenty class.
+** Description:  This program contains the implementation of the black market class.
 *******************************************************************************/
-#include "yeartwentyTwenty.hpp"
+#include "blackMarket.hpp"
+
 
 /*********************************************************************
-*					yeartwentyTwenty::yeartwentyTwenty()
+*					blackMarket::blackMarket()
 * This is the default constructor that intializes the objects for the
-* yeartwentyTwenty class.
+* blackMarket class.
 *********************************************************************/
-yeartwentyTwenty::yeartwentyTwenty()
+blackMarket::blackMarket()
 {
 	left = nullptr;
 	right = nullptr;
 	top = nullptr;
 	bottom = nullptr;
-	map = std::make_shared<Board>(4,4);
+	story = "police.txt";
 }
 
 /*********************************************************************
-*					yeartwentyTwenty::yeartwentyTwenty()
+*					blackMarket::blackMarket()
 * This is the default destructor that deletes the objects in memory
-* in the yeartwentyTwenty class.
+* in the blackMarket class.
 *********************************************************************/
-yeartwentyTwenty::~yeartwentyTwenty()
+blackMarket::~blackMarket()
 {
-
 }
-
-

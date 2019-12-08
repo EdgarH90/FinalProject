@@ -42,6 +42,12 @@
     <ClCompile Include="researchLab.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="blackMarket.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="skyline.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inputValidation.hpp">
@@ -66,6 +72,12 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="researchLab.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="blackMarket.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="skyline.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

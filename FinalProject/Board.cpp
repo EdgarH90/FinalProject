@@ -130,7 +130,7 @@ void Board::changeColor(int userX, int userY)
 	{
 		userBoard[randX][randY] = '?';
 	}
-	else if (randNum > .7 && randX != userX && randY != userY)
+	else if (randNum > .55 && randX != userX && randY != userY)
 	{
 		userBoard[randX][randY] = '#';
 	}
