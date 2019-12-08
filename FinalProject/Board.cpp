@@ -99,23 +99,43 @@ char Board::getboardCoord(int xPos, int yPos)
 	return userBoard[xPos][yPos];
 }
 
+/*********************************************************************
+*					Board::resetTile(int, int)
+* This function returns the value of the board where the current ant position is.
+*********************************************************************/
+
+void Board::resetTile(int xPos, int yPos)
+{
+	userBoard[xPos][yPos] = ' ';
+}
+
 
 /*********************************************************************
 *					Board::changeColor(char board[])
 * This function changes the color of the current board coordinate based
-* on the existing color.
+* on the existing color. The function also randomly generates items 
+* and radiation zones.
 *********************************************************************/
 
-void Board::changeColor(int antX, int antY)
+void Board::changeColor(int userX, int userY)
 {
-	char currentPos = getboardCoord(antX, antY);
+	//Random number between 0 and 1.00
+	double randNum = ((double)rand() / (double)RAND_MAX);
+	int randX = rand() % 3 +1;
+	int randY = rand() % 3 + 1;
 
-	if (currentPos == ' ')
+	char currentPos = getboardCoord(userX, userY);
+
+	if (randNum < .5)
 	{
-		userBoard[antX][antY] = '#';
+		userBoard[randX][randY] = '?';
+	}
+	else if (randNum > .7 && randX != userX && randY != userY)
+	{
+		userBoard[randX][randY] = '#';
 	}
 	else
 	{
-		userBoard[antX][antY] = ' ';
+	userBoard[randX][randY] = ' ';
 	}
 }

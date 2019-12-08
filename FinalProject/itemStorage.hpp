@@ -21,13 +21,13 @@ struct QueueNode
 	QueueNode* prev;
 };
 
-class itemQueue
+class itemStorage
 {
 private: 
 	QueueNode* head;
 public:
-	itemQueue();
-	~itemQueue();
+	itemStorage();
+	~itemStorage();
 	bool isEmpty();
 	void addBack(int val);
 	int getFront();

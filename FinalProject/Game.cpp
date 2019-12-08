@@ -46,8 +46,11 @@ void Game::getArt()
 void Game::playGame()
 {
 	yeartwentyTwenty year2020;
-	//Output the tile of the game
+	int userChoice = 0;
+	int userMovement = 0;
+	//Output the title of the game
 	getArt();
+	std::cout << "\r";
 	sectionBreak();
 
 	std::cout << "The last question was asked for the first time, \n"
@@ -62,17 +65,40 @@ void Game::playGame()
 		<< "the most powerful supercomputer humanity has ever seen, in the \n"
 		<< "hopes of finding an answer to the world's energy crisis. \n";
 
-	std::cout << "\nYour mission is to help Dr. Feynman collect the materials required" << std::endl;
-
+	std::cout << "\nYour mission is to help Dr. Feynman collect the materials required \n"
+		<< "Do you accept?" << std::endl;
+	std::cout << "1. Yes, I'll step into the collection vehicle. \n"
+		<< "2. No, I don't want to find the answer. \n";
+	inputValidation(userChoice, 1, 2);
 	sectionBreak();
 
-	std::cout << "Gather one deposit of each of the three elements necessary \n"
-		<<"by moving around the map.\nWARNING: AVOID RADIATION ZONES (white squares)! \n";
+	if (userChoice == 1)
+	{
+		std::cout << "Gather one deposit of each of the three elements necessary \n"
+		<<"by moving around the map.\nWARNING: AVOID RADIATION ZONES (# squares)! \n";
 
-	sectionBreak();
+		sectionBreak();
 
-	year2020.placeboardItems();
-	year2020.showmap();
+		//Set the status of the current mission
+		bool missionOver = false;
+		for (int i = 0; i <= 25; i++)
+		{
+			while (!missionOver)
+			{
+				year2020.showmap();
+				inputValidation(userMovement, 0, 3);
+				missionOver = year2020.updateMap(userMovement);
+			}
+		}
+		if (!year2020.getStatus())
+		{
+			std::cout << "Well done! "
+		}
+	}
+	else
+	{
+		std::cout << "GAME OVER" << std::endl;
+	}
 
 }
 

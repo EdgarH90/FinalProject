@@ -21,7 +21,8 @@ public:
 	Board(int row, int col); // Constructor that initializes empty array
 	~Board(); //Destructor deletes allocated memory
 	void showBoard(int xPos, int yPos); //Displays the board state
-	char getboardCoord(int antX, int antY); //Gets current board coordinates
-	void changeColor(int antX, int antY); //Changes tile colors
+	char getboardCoord(int X, int Y); //Gets current board coordinates
+	void changeColor(int X, int Y); //Changes tile colors
+	void resetTile(int xPos, int yPos); //Resets tile if item is collected
 };
 #endif

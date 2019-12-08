@@ -1,32 +1,32 @@
 /*******************************************************************************
 ** Author:       Edgar Hernandez
 ** Date:         11/15/2019
-** Description:  This program contains the specification for the itemQueue class.
+** Description:  This program contains the specification for the itemStorage class.
 ** It contains a pointer to the first QueueNode object as a member variable. It
 ** also contains five functions functions for queue operations - check to see if
 ** queue is empty, add value to back of queue, get value at front, remove the value
 ** at front, and print queue.
 *******************************************************************************/
-#include "itemQueue.hpp"
+#include "itemStorage.hpp"
 
 
 
 /*********************************************************************
-*					itemQueue::itemQueue()
-* This is the default constructor for the itemQueue. It initializes the value
+*					itemStorage::itemStorage()
+* This is the default constructor for the itemStorage. It initializes the value
 * for the head to a nullptr.
 *********************************************************************/
-itemQueue::itemQueue()
+itemStorage::itemStorage()
 {
 	head = nullptr;
 }
 
 /*********************************************************************
-*					itemQueue::~itemQueue()
-* This is the default destructor for the itemQueue. It contains a garbage
+*					itemStorage::~itemStorage()
+* This is the default destructor for the itemStorage. It contains a garbage
 * collector that deallocates all of the memory used by the list.
 *********************************************************************/
-itemQueue::~itemQueue()
+itemStorage::~itemStorage()
 {
 	//Break the link at the back of list
 	if (head != nullptr)
@@ -45,10 +45,10 @@ itemQueue::~itemQueue()
 }
 
 /*********************************************************************
-*					itemQueue::getFront()
+*					itemStorage::getFront()
 * This function prints the value at the head of the list.
 *********************************************************************/
-int itemQueue::getFront()
+int itemStorage::getFront()
 {
 	if (head != nullptr)
 	{
@@ -56,16 +56,16 @@ int itemQueue::getFront()
 	}
 	else
 	{
-		//Return negative integer if itemQueue is empty
+		//Return negative integer if itemStorage is empty
 		return -1;
 	}
 }
 
 /*********************************************************************
-*					itemQueue::isEmpty()
-* This function checks to see if the itemQueue is empty.
+*					itemStorage::isEmpty()
+* This function checks to see if the itemStorage is empty.
 *********************************************************************/
-bool itemQueue::isEmpty()
+bool itemStorage::isEmpty()
 {
 	if (head == nullptr)
 	{
@@ -78,11 +78,11 @@ bool itemQueue::isEmpty()
 }
 
 /*********************************************************************
-*					itemQueue::addBack()
+*					itemStorage::addBack()
 * This function adds a node at the back of the list. It takes in an
 * integer from the user to be used as the value.
 *********************************************************************/
-void itemQueue::addBack(int usernumIn)
+void itemStorage::addBack(int usernumIn)
 {
 	QueueNode* nodePtr = head;
 	if (isEmpty())
@@ -126,23 +126,23 @@ void itemQueue::addBack(int usernumIn)
 }
 
 /*********************************************************************
-*					itemQueue::removeFront()
+*					itemStorage::removeFront()
 * This function deletes the first value in the list. It uses a node
 * pointer to keep track of the head.
 *********************************************************************/
-void itemQueue::removeFront()
+void itemStorage::removeFront()
 {
 	//Hold location of head until operations are complete
 	QueueNode* nodePtr = head;
 	if (isEmpty())
 	{
-		std::cout << "Your itemQueue is empty." << std::endl;
+		std::cout << "Your itemStorage is empty." << std::endl;
 	}
 	else
 	{
 		if (head->next == head)
 		{
-			//If only one value in itemQueue, set head to null
+			//If only one value in itemStorage, set head to null
 			head = nullptr;
 			delete nodePtr;
 		}
@@ -159,21 +159,21 @@ void itemQueue::removeFront()
 }
 
 /*********************************************************************
-*					itemQueue::printQueue()
+*					itemStorage::printQueue()
 * This function traverses the list beginning with the first value. It
 * first checks that the list is not empty.
 *********************************************************************/
-void itemQueue::printQueue()
+void itemStorage::printQueue()
 {
 	QueueNode* nodePtr = head;
 
 	//If head is not null, print head value
 	if (nodePtr != nullptr)
 	{
-		std::cout << " \n Your itemQueue is: " << std::endl;
+		std::cout << " \n Your itemStorage is: " << std::endl;
 		std::cout << nodePtr->val << "  ";
 
-		//Loop if there is more than one value in the itemQueue
+		//Loop if there is more than one value in the itemStorage
 		while (nodePtr->next != head)
 		{
 			nodePtr = nodePtr->next;
@@ -182,7 +182,7 @@ void itemQueue::printQueue()
 	}
 	else
 	{
-		std::cout << "Your itemQueue is empty." << std::endl;
+		std::cout << "Your itemStorage is empty." << std::endl;
 	}
 	std::cout << "\n" << std::endl;
 }

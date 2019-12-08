@@ -126,9 +126,10 @@
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="inputValidation.cpp" />
-    <ClCompile Include="itemQueue.cpp" />
+    <ClCompile Include="itemStorage.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="menu.cpp" />
+    <ClCompile Include="researchLab.cpp" />
     <ClCompile Include="Space.cpp" />
     <ClCompile Include="yeartwentyTwenty.cpp" />
   </ItemGroup>
@@ -136,8 +137,9 @@
     <ClInclude Include="Board.hpp" />
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="inputValidation.hpp" />
-    <ClInclude Include="itemQueue.hpp" />
+    <ClInclude Include="itemStorage.hpp" />
     <ClInclude Include="menu.hpp" />
+    <ClInclude Include="researchLab.hpp" />
     <ClInclude Include="Space.hpp" />
     <ClInclude Include="yeartwentyTwenty.hpp" />
   </ItemGroup>

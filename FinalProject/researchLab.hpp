@@ -1,22 +1,22 @@
 /*******************************************************************************
 ** Author:       Edgar Hernandez
 ** Date:         12/1/2019
-** Description:  This program contains the specification for the yeartwentyTwenty class.
+** Description:  This program contains the specification for the researchLab class.
 *******************************************************************************/
 #include "Space.hpp"
-#ifndef YEARTWENTYTWENTY_HPP
-#define YEARTWENTYTWENTY_HPP
+#ifndef RESEARCHLAB_HPP
+#define RESEARCHLAB_HPP
 #include <string>
 #include <iostream>
 
-class yeartwentyTwenty:
+class researchLab :
 	public Space
 {
 protected:
 
 public:
-	yeartwentyTwenty();
-	virtual ~yeartwentyTwenty();
+	researchLab();
+	virtual ~researchLab();
 };
 
 #endif

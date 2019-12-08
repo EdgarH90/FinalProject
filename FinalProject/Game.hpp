@@ -10,9 +10,9 @@
 #include <fstream>
 #include <iomanip>
 #include <sstream>
-#include <memory>
 #include <vector>
-#include "itemQueue.hpp"
+#include "inputValidation.hpp"
+#include "itemStorage.hpp"
 #include "Space.hpp"
 #include "yeartwentyTwenty.hpp"
 
@@ -23,7 +23,7 @@ private:
 	int damage = 0;
 	int teamoneScore = 0;
 	int teamtwoScore = 0;
-	itemQueue storage;
+	itemStorage storage;
 public:
 	Game() {};
 	~Game() {};

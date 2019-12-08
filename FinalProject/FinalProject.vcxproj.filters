@@ -27,9 +27,6 @@
     <ClCompile Include="menu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="itemQueue.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Space.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -37,6 +34,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Board.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="itemStorage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="researchLab.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -50,9 +53,6 @@
     <ClInclude Include="menu.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="itemQueue.hpp">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="Space.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -60,6 +60,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Board.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="itemStorage.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="researchLab.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

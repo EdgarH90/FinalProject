@@ -12,7 +12,7 @@
 #include <algorithm>
 #include "inputValidation.hpp"
 #include "Game.hpp"
-#include "itemQueue.hpp"
+#include "itemStorage.hpp"
 
 // The function takes in all user inputs and validates them
 void menu()
@@ -28,7 +28,7 @@ void menu()
 	std::cout << "Please select a number from the options below and press enter: " << std::endl;
 	std::cout << "1. Start new game." << std::endl;
 	std::cout << "2. Quit program." << std::endl;
-	inputValidation(status, errorMsg, 1, 2);
+	inputValidation(status, 1, 2);
 
 	while (status != 2)
 	{
@@ -39,7 +39,7 @@ void menu()
 
 			//Select characters for both teams
 			std::cout << "Please select the number of characters per team (max of 6). " << std::endl;
-			inputValidation(numofChars, errorMsg, 1, 6);
+			inputValidation(numofChars, 1, 6);
 
 			//Display list of characters
 			std::cout << "Available characters: " << std::endl;
@@ -58,7 +58,7 @@ void menu()
 
 					std::cout << "Please select Character number " << j + 1 << " for Team " <<
 						i + 1<< ": " << std::endl;
-					inputValidation(userChoice, errorMsg, 1, 5);
+					inputValidation(userChoice, 1, 5);
 					std::cout << "What is your character's name? " << std::endl;
 					std::getline(std::cin, playerName);
 					
@@ -69,7 +69,7 @@ void menu()
 
 			std::cout << "Would you like to print the loser list? " << std::endl;
 			std::cout << std::setw(10) << "1. Yes" << std::setw(10) << "2. No" << std::endl;
-			inputValidation(userChoice, errorMsg, 1, 2);
+			inputValidation(userChoice, 1, 2);
 			if (userChoice == 1)
 			{
 				
@@ -78,7 +78,7 @@ void menu()
 
 		std::cout << "Would you like to play again? " << std::endl;
 		std::cout << std::setw(10) << "1. Yes" << std::setw(10) << "2. No" << std::endl;
-		inputValidation(userChoice, errorMsg, 1, 2);
+		inputValidation(userChoice, 1, 2);
 		status = userChoice;
 	}
 	std::cout << "\n *********************** \n" << 

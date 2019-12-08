@@ -14,6 +14,6 @@
 
 void inputValidation(int& userInt, std::string errorMsg);
 
-void inputValidation(int& userInt, std::string errorMsg, int minVal, int maxVal);
+void inputValidation(int& userInt, int minVal, int maxVal);
 
 #endif

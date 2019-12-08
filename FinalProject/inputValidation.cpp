@@ -50,8 +50,9 @@ void inputValidation(int& userInt, std::string errorMsg)
 * and maximum values as parameters.
 *********************************************************************/
 
-void inputValidation(int& userInt, std::string errorMsg, int minVal, int maxVal)
+void inputValidation(int& userInt, int minVal, int maxVal)
 {
+	std::string errorMsg = "Please enter a valid integer.";
 	std::string userInput = "";
 	bool inputStatus = 1;
 	while (inputStatus)
