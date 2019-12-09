@@ -41,7 +41,7 @@ Game::Game()
 *********************************************************************/
 void Game::getStory(int filenumber)
 {
-	std::string files[3] = { "title_art.txt", "feynmansLab.txt", "final_art" };
+	std::string files[3] = { "title_art.txt", "feynmansLab.txt", "final_art.txt" };
 	std::ifstream fileIn(files[filenumber]);
 	std::string output = "";
 
@@ -123,8 +123,8 @@ void Game::mission(std::shared_ptr<Space> spaceIn)
 			missionOver = spaceIn->updateMap(userMovement);
 			fuel--;
 		}
-		gameStatus = spaceIn->getStatus();
 	}
+	gameStatus = spaceIn->getStatus();
 }
 
 
@@ -206,10 +206,9 @@ void Game::playGame()
 					currentLocation = currentLocation->getLeft(); //Set location to city
 					fileOutput = currentLocation->getStory();
 					getStory(fileOutput);
-					std::cout << "\n1. Return to the lab and ask the Univac a question \n"
-						<< "2. Continue on your way \n";
-					inputValidation(userChoice, 1, 2);
-					if (userChoice ==2)
+					std::cout << "\n1. Return to the lab and ask the Univac a question \n";
+					inputValidation(userChoice, 1, 1);
+					if (userChoice ==1)
 					{
 						gameStatus = false;
 					}
@@ -273,6 +272,7 @@ void Game::playGame()
 						mission(currentLocation);
 						if (!gameStatus)
 						{
+							std::cout << "TEST POINT" << std::endl;
 							sectionBreak();
 							fileOutput = currentLocation->getStory();
 							getStory(fileOutput);
@@ -353,7 +353,6 @@ void Game::playGame()
 						currentLocation = currentLocation->getRight();
 						fileOutput = currentLocation->getStory();
 						getStory(fileOutput);
-						currentLocation = currentLocation->getRight();
 						sectionBreak();
 
 						std::cout << "Gather 7 dark matter data pools (1) \n"
@@ -366,8 +365,14 @@ void Game::playGame()
 							<< "2 - Right \n"
 							<< "3 - Down \n";
 						mission(currentLocation);
-						getStory(2);
 						sectionBreak();
+						
+						if (!gameStatus)
+						{
+							getStory(2);
+							sectionBreak();
+							std::cout << "CONGRATULATIONS, YOU HAVE WON!" << std::endl;
+						}
 					}
 					gameStatus = true;
 				}

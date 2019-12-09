@@ -71,7 +71,6 @@ bool futureX23::updateMap(int userMove)
 		if (checkItems()) //Check the storage container for items
 		{
 			gameOver = false;
-			std::cout << "returning flag \n";
 			flag = true;
 		}
 	}

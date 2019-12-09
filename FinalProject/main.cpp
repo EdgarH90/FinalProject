@@ -22,9 +22,9 @@ int main()
 
 	Game thelastQuestion;
 
-	//thelastQuestion.playGame();
+	thelastQuestion.playGame();
 
-	thelastQuestion.mission(thelastQuestion.unknown);
+	//thelastQuestion.mission(thelastQuestion.heatTime);
 
 	
 

@@ -38,7 +38,7 @@ public:
 	std::shared_ptr<Space> heatTime;
 	std::shared_ptr<Space> currentLocation; //Keeps track of the player's current location
 	std::string fileOutput = ""; //String for the text file containing the story
-	bool gameStatus = true;
+	bool gameStatus = false;
 	bool missionOver = true;
 	int fuel = 25; //Keep track of fuel remaining
 	int userChoice = 0;
