@@ -117,7 +117,7 @@ void Board::resetTile(int xPos, int yPos)
 * and radiation zones.
 *********************************************************************/
 
-void Board::changeColor(int userX, int userY)
+void Board::changeColor(int userX, int userY, int spaceType)
 {
 	//Random number between 0 and 1.00
 	double randNum = ((double)rand() / (double)RAND_MAX);
@@ -126,16 +126,49 @@ void Board::changeColor(int userX, int userY)
 
 	char currentPos = getboardCoord(userX, userY);
 
-	if (randNum < .5)
+	if (spaceType == 1)
 	{
-		userBoard[randX][randY] = '?';
+		if (randNum < .5)
+		{
+			userBoard[randX][randY] = 'D';
+		}
+		else if (randNum > .55 && randX != userX && randY != userY)
+		{
+			userBoard[randX][randY] = '#';
+		}
+		else
+		{
+			userBoard[randX][randY] = ' ';
+		}
 	}
-	else if (randNum > .55 && randX != userX && randY != userY)
+	else if (spaceType == 2)
 	{
-		userBoard[randX][randY] = '#';
+		if (randNum < .5)
+		{
+			userBoard[randX][randY] = '?';
+		}
+		else if (randNum > .5 && randX != userX && randY != userY)
+		{
+			userBoard[randX][randY] = 'O';
+		}
+		else
+		{
+			userBoard[randX][randY] = ' ';
+		}
 	}
 	else
 	{
-	userBoard[randX][randY] = ' ';
+		if (randNum < .45)
+		{
+			userBoard[randX][randY] = 'S';
+		}
+		else if (randNum > .5 && randX != userX && randY != userY)
+		{
+			userBoard[randX][randY] = 'O';
+		}
+		else
+		{
+			userBoard[randX][randY] = ' ';
+		}
 	}
 }

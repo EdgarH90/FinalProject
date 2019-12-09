@@ -10,18 +10,13 @@ Space::~Space() {}
 
 
 /*********************************************************************
-*					Space::placemapItems()
-* This function randomly places the items the user needs to collect.
+*					Space::resetCoord()
+* Reset the x and y coordinates for the map.
 *********************************************************************/
-void Space::placemapItems()
+void Space::resetCoord()
 {
-	//Generate random x and y coordinates on the board
-	for (int i = 0; i < 3; i++)
-	{
-		int xCoord = rand() % 3 + 1;
-		int yCoord = rand() % 3 + 1;
-		map->changeColor(xCoord, yCoord);
-	}
+	userXpos = 0;
+	userYpos = 0;
 }
 
 /*********************************************************************
@@ -41,9 +36,6 @@ void Space::showmap()
 *					Space::updateMap()
 * This function updates the color of the board's tiles by using the
 * structure pointer operator to access the Board object's member functions.
-* The ant's rotation is set based on the current orientation in the enum
-* antRotation object. The modulus operator is used to ensure the rotation loops
-* correctly.
 *********************************************************************/
 
 bool Space::updateMap(int userMove)
@@ -53,11 +45,11 @@ bool Space::updateMap(int userMove)
 	if (map->getboardCoord(userXpos, userYpos) == ' ')
 	{
 
-		map->changeColor(userXpos, userYpos);
+		map->changeColor(userXpos, userYpos, 1);
 		currentRotation = static_cast<userMovement>(userMove); // Ensures enum value is not out of range
 		navigateMap();
 	}
-	if (map->getboardCoord(userXpos, userYpos) == '?')
+	if (map->getboardCoord(userXpos, userYpos) == 'D')
 	{
 		itemCount++;
 		std::cout << "You have collected " << itemCount <<" of the 3 nuclear items. " << std::endl;
@@ -213,7 +205,7 @@ std::shared_ptr<Space> Space::getBottom()
 
 
 /*********************************************************************
-*					Space::getStatus()
+*					Space::getStory()
 * This function prints the current state of the space
 *********************************************************************/
 
@@ -230,4 +222,14 @@ std::string Space::getStory()
 bool Space::getStatus()
 {
 	return gameOver; 
+}
+
+/*********************************************************************
+*					Space::getFuel()
+* This function returns the fuel amount for the space
+*********************************************************************/
+
+int Space::getFuel()
+{
+	return fuel;
 }

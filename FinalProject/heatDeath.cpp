@@ -1,33 +1,44 @@
 /*******************************************************************************
 ** Author:       Edgar Hernandez
 ** Date:         12/1/2019
-** Description:  This program contains the implementation of the yeartwentyTwenty class.
+** Description:  This program contains the implementation of the heatDeath class.
 *******************************************************************************/
-#include "yeartwentyTwenty.hpp"
+#include "heatDeath.hpp"
 
 /*********************************************************************
-*					yeartwentyTwenty::yeartwentyTwenty()
+*					heatDeath::heatDeath()
 * This is the default constructor that intializes the objects for the
-* yeartwentyTwenty class.
+* heatDeath class.
 *********************************************************************/
-yeartwentyTwenty::yeartwentyTwenty()
+heatDeath::heatDeath()
 {
 	left = nullptr;
 	right = nullptr;
 	top = nullptr;
 	bottom = nullptr;
-	map = std::make_shared<Board>(4,4);
-	fuel = 25;
+	story = "heatDeath.txt";
 }
 
 /*********************************************************************
-*					yeartwentyTwenty::yeartwentyTwenty()
+*					heatDeath::heatDeath()
 * This is the default destructor that deletes the objects in memory
-* in the yeartwentyTwenty class.
+* in the heatDeath class.
 *********************************************************************/
-yeartwentyTwenty::~yeartwentyTwenty()
+heatDeath::~heatDeath()
 {
 
+}
+
+
+/*********************************************************************
+*					heatDeath::getStory()
+* This function returns the string for the file containing the content
+* of the story. It overrides the function of the parent class.
+*********************************************************************/
+
+std::string heatDeath::getStory()
+{
+	return story;
 }
 
 

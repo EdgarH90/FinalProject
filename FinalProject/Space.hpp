@@ -23,13 +23,13 @@ enum userMovement { N, E, S, W };
 
 class Space
 {
-protected://MAKE PRIVATE
+protected:
 	std::shared_ptr<Space> left;
 	std::shared_ptr<Space> right;
 	std::shared_ptr<Space> top;
 	std::shared_ptr<Space> bottom;
 	std::shared_ptr<Board> map;
-	itemStorage storage;
+	itemStorage storage; //Store the items needed for the missions
 	userMovement currentRotation;
 	int userXpos = 0;
 	int userYpos = 0;
@@ -37,11 +37,12 @@ protected://MAKE PRIVATE
 	int numCols = 4;
 	int playerStatus = 1;
 	int itemCount = 0;
+	int fuel = 25;
 	std::string story = "";
 	bool gameOver = true;
 public:
 	virtual ~Space() = 0;
-	virtual void placemapItems();
+	virtual void resetCoord();
 	virtual void setRight(std::shared_ptr<Space> rightIn);
 	virtual void setLeft(std::shared_ptr<Space> rightIn);
 	virtual void setTop(std::shared_ptr<Space> rightIn);
@@ -54,7 +55,8 @@ public:
 	virtual void navigateMap();
 	virtual  std::string getStory();
 	virtual bool getStatus();
-	void showmap();
+	virtual int getFuel();
+	virtual void showmap();
 };
 
 #endif.

@@ -125,7 +125,11 @@
   <ItemGroup>
     <ClCompile Include="blackMarket.cpp" />
     <ClCompile Include="Board.cpp" />
+    <ClCompile Include="distFuture.cpp" />
+    <ClCompile Include="finalTime.cpp" />
+    <ClCompile Include="futureX23.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="heatDeath.cpp" />
     <ClCompile Include="inputValidation.cpp" />
     <ClCompile Include="itemStorage.cpp" />
     <ClCompile Include="main.cpp" />
@@ -133,18 +137,24 @@
     <ClCompile Include="researchLab.cpp" />
     <ClCompile Include="skyline.cpp" />
     <ClCompile Include="Space.cpp" />
+    <ClCompile Include="unknownTime.cpp" />
     <ClCompile Include="yeartwentyTwenty.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="blackMarket.hpp" />
     <ClInclude Include="Board.hpp" />
+    <ClInclude Include="distFuture.hpp" />
+    <ClInclude Include="finalTime.hpp" />
+    <ClInclude Include="futureX23.hpp" />
     <ClInclude Include="Game.hpp" />
+    <ClInclude Include="heatDeath.hpp" />
     <ClInclude Include="inputValidation.hpp" />
     <ClInclude Include="itemStorage.hpp" />
     <ClInclude Include="menu.hpp" />
     <ClInclude Include="researchLab.hpp" />
     <ClInclude Include="skyline.hpp" />
     <ClInclude Include="Space.hpp" />
+    <ClInclude Include="unknownTime.hpp" />
     <ClInclude Include="yeartwentyTwenty.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
