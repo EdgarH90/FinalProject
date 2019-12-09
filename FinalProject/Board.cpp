@@ -2,8 +2,8 @@
 ** Author:       Edgar Hernandez
 ** Date:         12/7/2019
 ** Description:  This program contains the implementation for the Board class.
-** The function takes in a matrix in the form of a pointer to a 2D array, and its size
-** as parameters. (Modified from project 1)
+** It contains several functions for creating and updating the game map.
+** (Modified from project 1)
 *******************************************************************************/
 #include <string>
 #include<iostream>
@@ -55,8 +55,8 @@ Board::~Board()
 *					Board::showBoard(int, int)
 * This function takes in two ints for the x and y position as parameters.
 * It prints out the current state of the game board by displaying the
-* values in the  array. If the ant is in the current position,
-* it will print the ant.
+* values in the  array. If the user is in the current position,
+* it will print the user.
 *********************************************************************/
 
 void Board::showBoard(int xPos, int yPos)
@@ -73,7 +73,7 @@ void Board::showBoard(int xPos, int yPos)
 		std::cout << "|";
 		for (int col = 0; col < userCol; col++)
 		{
-			if ((row == xPos) && (col == yPos)) //Print the ant if it is in the current position
+			if ((row == xPos) && (col == yPos)) //Print the user if it is in the current position
 			{
 				std::cout << "*" << " " << std::setw(2);
 			}
@@ -91,7 +91,7 @@ void Board::showBoard(int xPos, int yPos)
 
 /*********************************************************************
 *					Board::getBoardCoord(int, int)
-* This function returns the value of the board where the current ant position is.
+* This function returns the value of the board where the current user position is.
 *********************************************************************/
 
 char Board::getboardCoord(int xPos, int yPos)
@@ -101,7 +101,7 @@ char Board::getboardCoord(int xPos, int yPos)
 
 /*********************************************************************
 *					Board::resetTile(int, int)
-* This function returns the value of the board where the current ant position is.
+* This function resets the value of the board where the current user position is.
 *********************************************************************/
 
 void Board::resetTile(int xPos, int yPos)
@@ -112,9 +112,10 @@ void Board::resetTile(int xPos, int yPos)
 
 /*********************************************************************
 *					Board::changeColor(char board[])
-* This function changes the color of the current board coordinate based
+* This function changes the "color" of the current board coordinate based
 * on the existing color. The function also randomly generates items 
-* and radiation zones.
+* and danger zones for the different maps by taking in an int for the
+* space type as a parameter.
 *********************************************************************/
 
 void Board::changeColor(int userX, int userY, int spaceType)
@@ -124,8 +125,7 @@ void Board::changeColor(int userX, int userY, int spaceType)
 	int randX = rand() % 3 +1;
 	int randY = rand() % 3 + 1;
 
-	char currentPos = getboardCoord(userX, userY);
-
+	//The spaceType denotes the object calling the function
 	if (spaceType == 1)
 	{
 		if (randNum < .5)

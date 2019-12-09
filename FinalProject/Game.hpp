@@ -2,15 +2,17 @@
 ** Author:       Edgar Hernandez
 ** Date:         12/1/2019
 ** Description:  This program contains the specification for the Game class.
+** This class contains all of the space objects and general gameplay functions. 
 *******************************************************************************/
-#ifndef PLAYGAME_HPP
-#define PLAYGAME_HPP
+#ifndef GAME_HPP
+#define GAME_HPP
 #include <string>
 #include <iostream>
 #include <fstream>
 #include <iomanip>
 #include <sstream>
 #include <vector>
+#include <memory>
 #include "inputValidation.hpp"
 #include "itemStorage.hpp"
 #include "Space.hpp"
@@ -26,7 +28,7 @@
 
 class Game
 {
-public:
+protected:
 	std::shared_ptr<Space> year2020;
 	std::shared_ptr<Space> drsLab;
 	std::shared_ptr<Space> market;
@@ -38,11 +40,11 @@ public:
 	std::shared_ptr<Space> heatTime;
 	std::shared_ptr<Space> currentLocation; //Keeps track of the player's current location
 	std::string fileOutput = ""; //String for the text file containing the story
-	bool gameStatus = false;
+	bool gameStatus = false; 
 	bool missionOver = true;
 	int fuel = 25; //Keep track of fuel remaining
-	int userChoice = 0;
-	int userMovement = 0;
+	int userChoice = 0; //Used for user input
+	int userMovement = 0; //Used to navigate the maps
 public:
 	Game();
 	~Game() {};

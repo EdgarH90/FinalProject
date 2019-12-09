@@ -26,8 +26,7 @@ heatDeath::heatDeath()
 
 /*********************************************************************
 *					heatDeath::heatDeath()
-* This is the default destructor that deletes the objects in memory
-* in the heatDeath class.
+* This is the default destructor for the class.
 *********************************************************************/
 heatDeath::~heatDeath()
 {

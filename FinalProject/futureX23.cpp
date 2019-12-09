@@ -24,8 +24,7 @@ futureX23::futureX23()
 
 /*********************************************************************
 *					futureX23::futureX23()
-* This is the default destructor that deletes the objects in memory
-* in the futureX23 class.
+* This is the default destructor for the class
 *********************************************************************/
 futureX23::~futureX23()
 {
@@ -66,7 +65,7 @@ bool futureX23::updateMap(int userMove)
 	{
 		itemCount++;
 		storeItem(1, itemsNeeded);
-		std::cout << "You have collected " << itemCount << " of the 4 planets' energy. " << std::endl;
+		std::cout << "You have collected " << itemCount << " of the 4 planets' energies. " << std::endl;
 		map->resetTile(userXpos, userYpos);
 		if (checkItems()) //Check the storage container for items
 		{

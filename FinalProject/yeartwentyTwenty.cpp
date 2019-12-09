@@ -22,8 +22,7 @@ yeartwentyTwenty::yeartwentyTwenty()
 
 /*********************************************************************
 *					yeartwentyTwenty::yeartwentyTwenty()
-* This is the default destructor that deletes the objects in memory
-* in the yeartwentyTwenty class.
+* This is the default destructor for the class.
 *********************************************************************/
 yeartwentyTwenty::~yeartwentyTwenty()
 {

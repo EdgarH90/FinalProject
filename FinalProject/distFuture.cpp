@@ -24,8 +24,7 @@ distFuture::distFuture()
 
 /*********************************************************************
 *					distFuture::distFuture()
-* This is the default destructor that deletes the objects in memory
-* in the distFuture class.
+* This is the default destructor for the class
 *********************************************************************/
 distFuture::~distFuture()
 {
@@ -66,7 +65,7 @@ bool distFuture::updateMap(int userMove)
 	{
 		itemCount++;
 		storeItem(1, itemsNeeded);
-		std::cout << "You have collected " << itemCount << " of the 5 stars' energy. " << std::endl;
+		std::cout << "You have collected " << itemCount << " of the 5 stars' energies. " << std::endl;
 		map->resetTile(userXpos, userYpos);
 		if (checkItems()) //Check the storage container for items
 		{

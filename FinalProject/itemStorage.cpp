@@ -4,8 +4,8 @@
 ** Description:  This program contains the specification for the itemStorage class.
 ** It contains a pointer to the first QueueNode object as a member variable. It
 ** also contains five functions functions for queue operations - check to see if
-** queue is empty, add value to back of queue, get value at front, remove the value
-** at front, and print queue.
+** queue is empty, check if full, add value to back of queue, get value at front,
+** remove the value at front, and print queue.
 *******************************************************************************/
 #include "itemStorage.hpp"
 
@@ -80,7 +80,8 @@ bool itemStorage::isEmpty()
 /*********************************************************************
 *					itemStorage::addBack()
 * This function adds a node at the back of the list. It takes in an
-* integer from the user to be used as the value.
+* integer from the user to be used as the value. The function also 
+* checks if the container is already full before adding the item.
 *********************************************************************/
 void itemStorage::addBack(int usernumIn, int sizeLimit)
 {

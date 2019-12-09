@@ -21,8 +21,7 @@ skyline::skyline()
 
 /*********************************************************************
 *					skyline::skyline()
-* This is the default destructor that deletes the objects in memory
-* in the skyline class.
+* This is the default destructor for the class
 *********************************************************************/
 skyline::~skyline()
 {
@@ -32,8 +31,8 @@ skyline::~skyline()
 /*********************************************************************
 *					skyline::navigateMap()
 * The user's movement is based on the currentRotation value set in the
-* updateTile function. The x and y axes had to be swapped to ensure the
-* movement was correct.
+* updateTile function. This overrides the base class function as this
+* object does not have a map.
 *********************************************************************/
 
 void skyline::navigateMap()

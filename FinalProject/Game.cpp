@@ -2,12 +2,18 @@
 ** Author:       Edgar Hernandez
 ** Date:         10/19/2019
 ** Description:  This program contains the implementation for the Game class.
-** 
+** This class contains all of the space objects and general gameplay functions.
 *******************************************************************************/
 #include "Game.hpp"
 
 
 
+/*********************************************************************
+*					Game::getStory()
+* This is the default constructor for the game. It initializes all
+* of the pointers for the space and sets the nodes. The Space classes
+* are created with all four space pointers set to null.
+*********************************************************************/
 Game::Game()
 {
 	year2020 = std::make_shared<yeartwentyTwenty>();
@@ -27,17 +33,17 @@ Game::Game()
 	city->setRight(drsLab);
 	drsLab->setRight(x23);
 	x23->setTop(distantFuture);
-	distantFuture->setBottom(x23);
 	distantFuture->setRight(unknown);
 	unknown->setRight(finTime);
 	finTime->setLeft(heatTime);
 	finTime->setRight(heatTime);
-	heatTime->setLeft(finTime);
 }
 /*********************************************************************
 *					Game::getStory()
 * This function takes in an integer as a paramater and uses it to determine
-* which file's contents to return.
+* which file's contents to return. All original files were obtained 
+* or modified from the following source:
+* https://www.asciiart.eu/
 *********************************************************************/
 void Game::getStory(int filenumber)
 {
@@ -101,8 +107,8 @@ void Game::getStory(std::string inputFile)
 
 /*********************************************************************
 *					Game::gameMission()
-* This function overrides the getStory() function. It takes in a string
-* as a paramater and uses it to determine which file's contents to return.
+* This function takes in a shared Space pointer as a parameter. It 
+* then uses the pointer to call the appropriate class functions.
 *********************************************************************/
 
 void Game::mission(std::shared_ptr<Space> spaceIn)
@@ -144,7 +150,8 @@ void Game::playGame()
 	//Output the title of the game
 	getStory(0);
 	std::cout << "\r";
-	sectionBreak();
+
+	sectionBreak(); //Print out dividers to help flow of story
 
 	std::cout << "The last question was asked for the first time,\n"
 		<< "half in jest, on May 21, 2030, at a time when humanity \n"
@@ -165,6 +172,7 @@ void Game::playGame()
 	inputValidation(userChoice, 1, 2);
 	sectionBreak();
 
+	//Take the user to the first mission
 	if (userChoice == 1)
 	{
 		currentLocation = year2020;
@@ -385,7 +393,6 @@ void Game::playGame()
 			}
 		}
 	}
-	std::cout << "GAME OVER" << std::endl;
 }
 
 /*********************************************************************

@@ -2,6 +2,7 @@
 ** Author:       Edgar Hernandez
 ** Date:         12/1/2019
 ** Description:  This program contains the implementation of the black market class.
+** This class is derived from the base Space class.
 *******************************************************************************/
 #include "blackMarket.hpp"
 

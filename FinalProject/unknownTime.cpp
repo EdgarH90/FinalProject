@@ -66,7 +66,7 @@ bool unknownTime::updateMap(int userMove)
 	{
 		itemCount++;
 		storeItem(1, itemsNeeded);
-		std::cout << "You have collected " << itemCount << " of the galaxies' energy. " << std::endl;
+		std::cout << "You have collected " << itemCount << " of the galaxies' energies. " << std::endl;
 		map->resetTile(userXpos, userYpos);
 		if (checkItems()) //Check the storage container for items
 		{

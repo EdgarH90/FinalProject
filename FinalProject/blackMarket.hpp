@@ -2,6 +2,7 @@
 ** Author:       Edgar Hernandez
 ** Date:         12/1/2019
 ** Description:  This program contains the specification for the blackMarket class.
+** This class is derived from the base Space class.
 *******************************************************************************/
 #include "Space.hpp"
 #ifndef BLACKMARKET_HPP
@@ -17,4 +18,4 @@ public:
 	virtual ~blackMarket();
 };
 
-#endif 
+#endif

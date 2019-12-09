@@ -21,8 +21,7 @@ finalTime::finalTime()
 
 /*********************************************************************
 *					finalTime::finalTime()
-* This is the default destructor that deletes the objects in memory
-* in the finalTime class.
+* This is the default destructor for the finalTime class.
 *********************************************************************/
 finalTime::~finalTime()
 {
