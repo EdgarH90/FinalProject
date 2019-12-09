@@ -156,7 +156,7 @@ void Board::changeColor(int userX, int userY, int spaceType)
 			userBoard[randX][randY] = ' ';
 		}
 	}
-	else
+	else if (spaceType == 3)
 	{
 		if (randNum < .45)
 		{
@@ -165,6 +165,40 @@ void Board::changeColor(int userX, int userY, int spaceType)
 		else if (randNum > .5 && randX != userX && randY != userY)
 		{
 			userBoard[randX][randY] = 'O';
+		}
+		else
+		{
+			userBoard[randX][randY] = ' ';
+		}
+	}
+	else if (spaceType == 4)
+	{
+		if (randNum < .45)
+		{
+			userBoard[randX][randY] = '~';
+		}
+		else if (randNum > .5 && randX != userX && randY != userY)
+		{
+			userBoard[randX][randY] = '0';
+		}
+		else
+		{
+			userBoard[randX][randY] = ' ';
+		}
+	}
+	else
+	{
+		randNum = ((double)rand() / (double)RAND_MAX);
+		randX = rand() % 5 + 1;
+		randY = rand() % 5 + 1;
+
+		if (randNum < .5)
+		{
+			userBoard[randX][randY] = '1';
+		}
+		else if (randNum > .55 && randX != userX && randY != userY)
+		{
+			userBoard[randX][randY] = '?';
 		}
 		else
 		{

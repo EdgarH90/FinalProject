@@ -41,7 +41,7 @@ Game::Game()
 *********************************************************************/
 void Game::getStory(int filenumber)
 {
-	std::string files[2] = { "title_art.txt", "feynmansLab.txt" };
+	std::string files[3] = { "title_art.txt", "feynmansLab.txt", "final_art" };
 	std::ifstream fileIn(files[filenumber]);
 	std::string output = "";
 
@@ -98,6 +98,7 @@ void Game::getStory(std::string inputFile)
 }
 
 
+
 /*********************************************************************
 *					Game::gameMission()
 * This function overrides the getStory() function. It takes in a string
@@ -117,7 +118,7 @@ void Game::mission(std::shared_ptr<Space> spaceIn)
 		while (!missionOver && fuel != 0)
 		{
 			spaceIn->showmap();
-			std::cout << "Fuel remaining: " << fuel << std::endl;
+			std::cout << "Energy remaining: " << fuel << std::endl;
 			inputValidation(userMovement, 0, 3);
 			missionOver = spaceIn->updateMap(userMovement);
 			fuel--;
@@ -170,7 +171,7 @@ void Game::playGame()
 		std::cout << "Gather one deposit (D) of each of the three elements necessary \n"
 			<< "by moving around the map.\nWARNING: \n"
 			<<"AVOID RADIATION ZONES (# squares)! \n"
-			<< "DO NOT RUN OUT OF FUEL! \n"
+			<< "DO NOT RUN OUT OF ENERGY! \n"
 			<< "Use the following keys to navigate: \n"
 			<< "0 - Left \n"
 			<< "1 - Up \n"
@@ -224,13 +225,13 @@ void Game::playGame()
 				getStory(fileOutput);
 				sectionBreak();
 
-				//Go forward in time
+				//Go forward in time to reach planet X23
 				std::cout << "Thousands of years later... \n";
 				currentLocation = currentLocation->getRight();
 				std::cout << "\nGather the energy of four planets (?) required for hypertravel to X23. \n"
 					<< "by moving around the map.\nWARNING: \n"
 					<< "AVOID RADIATION ZONES (O squares)! \n"
-					<< "DO NOT RUN OUT OF FUEL! \n"
+					<< "DO NOT RUN OUT OF ENERGY! \n"
 					<< "0 - Left \n"
 					<< "1 - Up \n"
 					<< "2 - Right \n"
@@ -247,45 +248,128 @@ void Game::playGame()
 
 					sectionBreak();
 
-					//Set current location to the distant future
-					currentLocation = currentLocation->getTop();
-					std::cout << "Gather the energy (~) from five galaxies \n"
-						<< "by moving around the map.\nWARNING: \n"
-						<< "AVOID BLACK HOLES ('0' squares)! \n"
-						<< "DO NOT RUN OUT OF FUEL! \n"
-						<< "Use the following keys to navigate: \n"
-						<< "0 - Left \n"
-						<< "1 - Up \n"
-						<< "2 - Right \n"
-						<< "3 - Down \n";
-					mission(currentLocation);
-					fileOutput = currentLocation->getStory();
-					getStory(fileOutput);
+					std::cout << "\n1. Continue your quest. \n"
+						<< "2. Quit \n";
+					inputValidation(userChoice, 1, 2);
+					if (userChoice == 1)
+					{
+						gameStatus = false;
+					}
+
+					if (!gameStatus)
+					{
+						//Set current location to the distant future
+						sectionBreak();
+						currentLocation = currentLocation->getTop();
+						std::cout << "Gather the energy (S) from five stars \n"
+							<< "by moving around the map.\nWARNING: \n"
+							<< "AVOID BLACK HOLES ('0' squares)! \n"
+							<< "DO NOT RUN OUT OF ENERGY! \n"
+							<< "Use the following keys to navigate: \n"
+							<< "0 - Left \n"
+							<< "1 - Up \n"
+							<< "2 - Right \n"
+							<< "3 - Down \n";
+						mission(currentLocation);
+						if (!gameStatus)
+						{
+							sectionBreak();
+							fileOutput = currentLocation->getStory();
+							getStory(fileOutput);
+							sectionBreak();
+						}
+					}
+
+					if (!gameStatus)
+					{
+						std::cout << "\n1. Continue your quest. \n"
+							<< "2. Quit \n";
+						inputValidation(userChoice, 1, 2);
+						if (userChoice == 1)
+						{
+							gameStatus = false;
+						}
+					}
+
+
+					if (!gameStatus)
+					{
+						//Set current location to unknown time
+						currentLocation = currentLocation->getRight();
+						sectionBreak();
+						std::cout << "Gather the energy (~) from six galaxies \n"
+							<< "by moving around the map.\nWARNING: \n"
+							<< "AVOID BLACK HOLES ('0' squares)! \n"
+							<< "DO NOT RUN OUT OF ENERGY! \n"
+							<< "Use the following keys to navigate: \n"
+							<< "0 - Left \n"
+							<< "1 - Up \n"
+							<< "2 - Right \n"
+							<< "3 - Down \n";
+						mission(currentLocation);
+						fileOutput = currentLocation->getStory();
+						getStory(fileOutput);
+						sectionBreak();
+					}
+
+					if (!gameStatus)
+					{
+						std::cout << "\n1. Travel to the time of Man. \n"
+							<< "2. Quit \n";
+						inputValidation(userChoice, 1, 2);
+						if (userChoice == 1)
+						{
+							gameStatus = false;
+						}
+					}
 
 					sectionBreak();
 
-					//Set current location to unknown time
-					currentLocation = currentLocation->getRight();
-					fileOutput = currentLocation->getStory();
-					getStory(fileOutput);
+					if (!gameStatus)
+					{
+						//Set current location to man's final time
+						sectionBreak();
+						currentLocation = currentLocation->getRight();
+						fileOutput = currentLocation->getStory();
+						getStory(fileOutput);
 
-					sectionBreak();
+						sectionBreak();
+					}
 
-					//Set current location to man's final time
-					currentLocation = currentLocation->getRight();
-					fileOutput = currentLocation->getStory();
-					getStory(fileOutput);
+					if (!gameStatus)
+					{
+						std::cout << "\n1. The Final Chapter. \n"
+							<< "2. Quit \n";
+						inputValidation(userChoice, 1, 2);
+						if (userChoice == 1)
+						{
+							gameStatus = false;
+						}
+						sectionBreak();
+					}
+					if (!gameStatus)
+					{
+						//Set current location to death of universe
+						currentLocation = currentLocation->getRight();
+						fileOutput = currentLocation->getStory();
+						getStory(fileOutput);
+						currentLocation = currentLocation->getRight();
+						sectionBreak();
 
-					sectionBreak();
-
-					//Set current location to death of universe
-					currentLocation = currentLocation->getRight();
-					fileOutput = currentLocation->getStory();
-					getStory(fileOutput);
-
-					sectionBreak();
+						std::cout << "Gather 7 dark matter data pools (1) \n"
+							<< "by moving around the map.\nWARNING: \n"
+							<< "AVOID CORRUPTED DATA ('?' squares)! \n"
+							<< "DO NOT RUN OUT OF ENERGY! \n"
+							<< "Use the following keys to navigate: \n"
+							<< "0 - Left \n"
+							<< "1 - Up \n"
+							<< "2 - Right \n"
+							<< "3 - Down \n";
+						mission(currentLocation);
+						getStory(2);
+						sectionBreak();
+					}
 					gameStatus = true;
-
 				}
 			}
 			else
@@ -297,8 +381,6 @@ void Game::playGame()
 		}
 	}
 	std::cout << "GAME OVER" << std::endl;
-
-
 }
 
 /*********************************************************************

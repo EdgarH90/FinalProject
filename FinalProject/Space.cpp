@@ -52,11 +52,13 @@ bool Space::updateMap(int userMove)
 	if (map->getboardCoord(userXpos, userYpos) == 'D')
 	{
 		itemCount++;
+		storeItem(1, itemsNeeded);
 		std::cout << "You have collected " << itemCount <<" of the 3 nuclear items. " << std::endl;
 		map->resetTile(userXpos, userYpos);
-		if (itemCount == 3)
+		if (checkItems()) //Check the storage container for items
 		{
 			gameOver = false;
+			std::cout << "returning flag \n";
 			flag = true;
 		}
 	}
@@ -64,6 +66,7 @@ bool Space::updateMap(int userMove)
 	{
 		std::cout << "You stepped into a radiation zone and died. \n";
 		flag = true;
+		gameOver = true;
 	}
 	return flag;
 }
@@ -232,4 +235,34 @@ bool Space::getStatus()
 int Space::getFuel()
 {
 	return fuel;
+}
+
+/*********************************************************************
+*					Space::storeItem()
+* This function stores an item in the container. It takes in two ints
+* as parameters. The function checks if the container is full or empty
+* before storing.
+*********************************************************************/
+
+void Space::storeItem(int value, int sizeLimit)
+{
+	storage.addBack(value, sizeLimit);
+}
+
+/*********************************************************************
+*					Space::checkItems()
+* This function checks to see if all items have been collected. 
+* by comparing the values in storage to the number of items needed.
+*********************************************************************/
+
+bool Space::checkItems()
+{
+	if (storage.getValues() == itemsNeeded)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }

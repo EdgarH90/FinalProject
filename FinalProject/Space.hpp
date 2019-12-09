@@ -13,17 +13,10 @@
 // Enumerated data type is used to create the private member for the rotation
 enum userMovement { N, E, S, W };
 
-//This struct represents each node in space
-//struct SpaceNode
-//{
-//	userMovement currentRotation;
-//	SpaceNode* next;
-//	SpaceNode* prev;
-//};
 
 class Space
 {
-protected:
+public: //FIX
 	std::shared_ptr<Space> left;
 	std::shared_ptr<Space> right;
 	std::shared_ptr<Space> top;
@@ -36,7 +29,8 @@ protected:
 	int numRows = 4;
 	int numCols = 4;
 	int playerStatus = 1;
-	int itemCount = 0;
+	int itemCount = 0; //Keeps track of the items
+	int itemsNeeded = 3;
 	int fuel = 25;
 	std::string story = "";
 	bool gameOver = true;
@@ -56,7 +50,9 @@ public:
 	virtual  std::string getStory();
 	virtual bool getStatus();
 	virtual int getFuel();
+	virtual void storeItem(int value, int sizeLimit);
 	virtual void showmap();
+	virtual bool checkItems();
 };
 
 #endif.

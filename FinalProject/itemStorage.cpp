@@ -82,46 +82,54 @@ bool itemStorage::isEmpty()
 * This function adds a node at the back of the list. It takes in an
 * integer from the user to be used as the value.
 *********************************************************************/
-void itemStorage::addBack(int usernumIn)
+void itemStorage::addBack(int usernumIn, int sizeLimit)
 {
 	QueueNode* nodePtr = head;
-	if (isEmpty())
+
+	if (!isFull(sizeLimit))
 	{
-		//If list is empty, allocate a new node to the head and 
-		//have previous and next both point to head
-		head = new QueueNode();
-		head->val = usernumIn;
-		head->prev = head;
-		head->next = head;
-	}
-	else
-	{
-		if (head->next == head)
+		if (isEmpty())
 		{
-			//This function adds a node when the only other node is the
-			//head.
-			nodePtr = new QueueNode();
-			nodePtr->val = usernumIn;
-			//Both the previous and next of new node point to head
-			nodePtr->next = head;
-			nodePtr->prev = head;
-			//Change head pointers to make sure the link is circular
-			head->prev = nodePtr;
-			head->next = nodePtr;
+			//If list is empty, allocate a new node to the head and 
+			//have previous and next both point to head
+			head = new QueueNode();
+			head->val = usernumIn;
+			head->prev = head;
+			head->next = head;
 		}
 		else
 		{
-			nodePtr = new QueueNode();
-			nodePtr->val = usernumIn;
-			//Latest node to be added always has next point to head
-			nodePtr->next = head;
-			//Previous points to the current last node
-			nodePtr->prev = head->prev;
-			//Sets current last node to second from end
-			head->prev->next = nodePtr;
-			//Sets new node to last node
-			head->prev = nodePtr;
+			if (head->next == head)
+			{
+				//This function adds a node when the only other node is the
+				//head.
+				nodePtr = new QueueNode();
+				nodePtr->val = usernumIn;
+				//Both the previous and next of new node point to head
+				nodePtr->next = head;
+				nodePtr->prev = head;
+				//Change head pointers to make sure the link is circular
+				head->prev = nodePtr;
+				head->next = nodePtr;
+			}
+			else
+			{
+				nodePtr = new QueueNode();
+				nodePtr->val = usernumIn;
+				//Latest node to be added always has next point to head
+				nodePtr->next = head;
+				//Previous points to the current last node
+				nodePtr->prev = head->prev;
+				//Sets current last node to second from end
+				head->prev->next = nodePtr;
+				//Sets new node to last node
+				head->prev = nodePtr;
+			}
 		}
+	}
+	else
+	{
+		std::cout << "Your container is now full. \n";
 	}
 }
 
@@ -159,32 +167,67 @@ void itemStorage::removeFront()
 }
 
 /*********************************************************************
-*					itemStorage::printQueue()
+*					itemStorage::getValues()
 * This function traverses the list beginning with the first value. It
 * first checks that the list is not empty.
 *********************************************************************/
-void itemStorage::printQueue()
+int itemStorage::getValues()
 {
 	QueueNode* nodePtr = head;
 
 	//If head is not null, print head value
 	if (nodePtr != nullptr)
 	{
-		std::cout << " \n Your itemStorage is: " << std::endl;
-		std::cout << nodePtr->val << "  ";
-
+		itemCount = 1;
 		//Loop if there is more than one value in the itemStorage
 		while (nodePtr->next != head)
 		{
 			nodePtr = nodePtr->next;
-			std::cout << nodePtr->val << "  ";
+			itemCount += nodePtr->val;
+
 		}
+		return itemCount;
 	}
 	else
 	{
-		std::cout << "Your itemStorage is empty." << std::endl;
+		return itemCount;
 	}
 	std::cout << "\n" << std::endl;
 }
 
+
+/*********************************************************************
+*					itemStorage::isFull()
+* This function checks to see if the itemStorage is full.
+*********************************************************************/
+bool itemStorage::isFull(int containerSize)
+{
+	int count = 0;
+	QueueNode* nodePtr = head;
+
+	if (isEmpty())
+	{
+		return false;
+	}
+	else
+	{
+		count++;
+		for (int i = 0; i < containerSize; i++)
+		{
+			while (nodePtr->next != head)
+			{
+				nodePtr = nodePtr->next;
+				count++;
+			}
+		}
+		if (count < containerSize)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+}
 

@@ -25,14 +25,16 @@ class itemStorage
 {
 private: 
 	QueueNode* head;
+	int itemCount = 0;
 public:
 	itemStorage();
 	~itemStorage();
 	bool isEmpty();
-	void addBack(int val);
+	bool isFull(int containerSize);
+	void addBack(int val, int sizeLimit);
 	int getFront();
 	void removeFront();
-	void printQueue();
+	int getValues();
 };
 
 #endif

@@ -18,6 +18,7 @@ public:
 	unknownTime();
 	virtual ~unknownTime();
 	virtual std::string getStory();
+	virtual bool updateMap(int userMove);
 };
 
 #endif

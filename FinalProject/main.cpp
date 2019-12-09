@@ -12,18 +12,21 @@
 #include "inputValidation.hpp"
 #include "Game.hpp"
 
+
+
 int main()
 {
 	//Uses the current time to generate a random seed for each roll
 	//Downcast as unsigned int to convert to 32-bit integer
 	srand((unsigned int)time(NULL));
 
-
 	Game thelastQuestion;
 
-	thelastQuestion.playGame();
+	//thelastQuestion.playGame();
 
+	thelastQuestion.mission(thelastQuestion.unknown);
 
+	
 
 	return 0;
 }

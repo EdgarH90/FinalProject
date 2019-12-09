@@ -18,6 +18,7 @@ public:
 	heatDeath();
 	virtual ~heatDeath();
 	virtual std::string getStory();
+	virtual bool updateMap(int userMove);
 };
 
 #endif

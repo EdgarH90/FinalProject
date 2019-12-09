@@ -26,7 +26,7 @@
 
 class Game
 {
-protected:
+public:
 	std::shared_ptr<Space> year2020;
 	std::shared_ptr<Space> drsLab;
 	std::shared_ptr<Space> market;
@@ -37,7 +37,6 @@ protected:
 	std::shared_ptr<Space> finTime;
 	std::shared_ptr<Space> heatTime;
 	std::shared_ptr<Space> currentLocation; //Keeps track of the player's current location
-	itemStorage storage;
 	std::string fileOutput = ""; //String for the text file containing the story
 	bool gameStatus = true;
 	bool missionOver = true;
@@ -52,6 +51,7 @@ public:
 	void sectionBreak();
 	void playGame();
 	void mission(std::shared_ptr<Space> spaceIn);
+
 };
 
 #endif

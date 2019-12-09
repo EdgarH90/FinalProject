@@ -19,6 +19,7 @@ distFuture::distFuture()
 	story = "distFuture.txt";
 	map = std::make_shared<Board>(4, 4);
 	fuel = 30;
+	itemsNeeded = 5;
 }
 
 /*********************************************************************
@@ -64,11 +65,13 @@ bool distFuture::updateMap(int userMove)
 	if (map->getboardCoord(userXpos, userYpos) == 'S')
 	{
 		itemCount++;
+		storeItem(1, itemsNeeded);
 		std::cout << "You have collected " << itemCount << " of the 5 stars' energy. " << std::endl;
 		map->resetTile(userXpos, userYpos);
-		if (itemCount == 5)
+		if (checkItems()) //Check the storage container for items
 		{
 			gameOver = false;
+			std::cout << "returning flag \n";
 			flag = true;
 		}
 	}
